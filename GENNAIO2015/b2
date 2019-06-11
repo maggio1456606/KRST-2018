@@ -1,0 +1,16 @@
+PREFIX abc: <http://www.semanticweb.org/maggio/ontologies/2018/4/esercizio2#>
+
+#b2. Return every actor that was born in the same country in which the director of movie ABC was born in.
+
+SELECT 
+	?actor
+
+WHERE 	{ 
+		?actor 	rdf:type 	abc:Actor.
+		
+		?director 	rdf:type 		abc:Director.
+		?director 	abc:isDirectorOf 	abc:ABC.
+		?director 	abc:bornIn		?place.
+		
+		?actor	abc:bornIn		?place. 
+	}

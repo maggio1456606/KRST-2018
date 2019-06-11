@@ -1,0 +1,16 @@
+PREFIX abc: <http://example.org/myVocabulary#>
+
+# Return  all  the  directors  of  the  movies  filemd  in Europe in 2016
+
+SELECT 
+	?d ?m ?c
+
+WHERE 
+	{ 
+		?m rdf:type abc:Movie.
+		?m abc:filmedInCountry ?c.
+		?c abc:isInContinent abc:Europe.
+		?m abc:filmedInYear ?y.
+		FILTER(?y = 2016).
+		?d abc:isDirectorOf ?m.
+	}

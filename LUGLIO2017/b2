@@ -1,0 +1,17 @@
+#  Return the dramas filmed in Italy and played by at least an Italian actor, and, optionally, the year when the movie was filmed.
+
+PREFIX abc: <http://example.org/myVocabulary#>
+
+SELECT 
+	?m ?y ?a
+WHERE 
+	{ 
+		?m	rdf:type		abc:Drama.
+		?m	abc:filmedInCountry	abc:Italy.
+		?a	abc:actsIn		?m.
+		?a	abc:bornIn		abc:Italy.
+		
+		OPTIONAL 	{
+				?m	abc:filmedInYear	?y.
+			}	
+	}

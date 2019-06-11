@@ -1,0 +1,13 @@
+PREFIX abc: <http://www.semanticweb.org/maggio/ontologies/2018/4/esercizio2#>
+
+#b1. Return all movies for which the director is also an actor.
+
+SELECT 
+	?movie ?director
+	
+WHERE 
+	{ 
+		?movie rdf:type abc:Movie.
+		?director abc:isDirectorOf ?movie.
+		?director abc:actsIn ?movie.
+	}

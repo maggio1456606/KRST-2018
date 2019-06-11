@@ -1,0 +1,51 @@
+@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@PREFIX abc: <http://example.org/myVocabulary/#>
+
+1.
+			abc:Person					rdf:type								rdfs:Class.
+			abc:Director					rdf:type								rdfs:Class.
+			abc:Actor						rdf:type								rdfs:Class.
+			abc:Writer					rdf:type								rdfs:Class.
+			abc:Movie					rdf:type								rdfs:Class.
+			
+2.
+			abc:Director					rdfs:subClassOf				abc:Person.
+			abc:Actor						rdfs:subClassOf				abc:Person.
+
+3.
+
+			abc:actsIn						rdf:type								rdfs:PROPERTY.
+			abc:bornIn					rdf:type								rdfs:PROPERTY.
+			abc:filmedIn				rdf:type								rdfs:PROPERTY.
+			abc:isDirectorOf			rdf:type								rdfs:PROPERTY.
+			
+4.
+
+			abc:isDirectorOf			rdfs:domain						abc:Director.
+			abc:isDirectorOf			rdfs:range						abc:Movie.
+			
+5.		
+			abc:filmedIn				rdfs:domain						abc:Movie.
+			abc:filmedIn				rdfs:range						abc:Country.
+			
+6.
+			abc:bornIn					rdfs:domain						abc:Person.
+			abc:bornIn					rdfs:range						abc:Country.
+			
+7.
+			abc:actsIn						rdfs:domain						abc:Actor.
+			abc:actsIn						rdfs:range						abc:Movie.
+
+8.
+			abc:Jane						abc:isDirectorOf				abc:XYZ.
+			
+9.
+			abc:Paul						abc:actsIn							abc:ABC.
+			abc:Mary						abc:actsIn							abc:ABC.
+			
+10.
+			abc:ABC						abc:filmedIn					abc:Italy.
+			
+11.
+			abc:Joe							rdf:type								abc:Director.

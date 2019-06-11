@@ -1,0 +1,14 @@
+PREFIX abc: <http://example.org/myVocabulary/#>
+
+# B2 - Return every actor that was born in the same country in which the director of movie ABC was born in.
+
+
+SELECT
+					?x
+
+WHERE {
+					?x			rdf:type						abc:Actor.
+					?y			abc:isDirectorOf		abc:ABC.
+					?y			abc:bornIn				?z.
+					?x			abc:bornIn				?z.
+				}

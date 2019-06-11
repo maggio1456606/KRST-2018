@@ -1,0 +1,13 @@
+PREFIX abc: <http://example.org/myVocabulary/#>
+
+# B1 - Return all directors that have directed at least a movie filmed in Italy.
+
+
+SELECT
+					?x
+
+WHERE {
+					?x			rdf:type						abc:Director.
+					?y			abc:filmedIn			abc:Italy.
+					?x			abc:isDirectorOf		?y.
+				}
